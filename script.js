@@ -1,13 +1,56 @@
 const containerCompras = document.querySelector(".container-compras");
+let input = document.querySelector(".input");
+const form = document.querySelector(".form");
 
-// Densenvolvimento.....
 
-function cardItem() {
-  return `<div class="card-item">
+// Adicionar item a lista....
+function onSubitItem(event) {
+  event.preventDefault();
+  if (input.value.trim() === "") return;
+
+  const newArray = [];
+  const infoElement = newItem();
+
+  newArray.push(infoElement);
+
+  for (const it of newArray) {
+    containerCompras.innerHTML += cardItem(it);
+  }
+
+  input.value = "";
+}
+
+form.addEventListener("submit", onSubitItem);
+
+// Validar Container....
+function checkContainer() {
+  if (containerCompras.children.length === 0) {
+    const childreElement = document.createElement("p");
+    childreElement.innerHTML = "Sua lista esta vazia adiciocione items!";
+    containerCompras.appendChild(childreElement);
+  }
+
+  return (childreElement.innerHTML = "");
+}
+
+checkContainer();
+
+// New element....
+function newItem() {
+  return (elementItem = {
+    id: Math.floor(Math.random() * 100),
+    nome: input.value,
+    data: new Date().toString(),
+  });
+}
+
+// CardItem.....
+function cardItem(item) {
+  return `<div class="card-item" id="${item.id}">
             <div class="wrapper-1">
               <div class="details">
                 <input type="checkbox" name="checkbox" id="checkbox" />
-                <p>Ração de gato</p>
+                <p>${item.nome}</p>
               </div>
 
               <div class="wrapper-btns">
@@ -18,6 +61,6 @@ function cardItem() {
                 </button>
               </div>
             </div>
-            <p>Terça feira 25/09/2024</p>
+            <p>${item.data}</p>
           </div>`;
 }

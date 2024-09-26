@@ -14,10 +14,10 @@ body {
 }
 
 .wrapper-caixa {
-  border: 1px solid;
   max-width: 400px;
   width: 100%;
   border-radius: 10px;
+  box-shadow: 2px 5px 19px -3px rgba(204, 204, 204, 0.39);
 }
 .wrapper-caixa .teste {
   padding: 18px;
@@ -33,6 +33,12 @@ body {
   display: block;
   border-radius: 8px;
   margin-top: 15px;
+  border: 2px solid darkgray;
+  outline: none;
+}
+.wrapper-caixa .teste input:focus {
+  border: 2px solid red;
+  outline: none;
 }
 .wrapper-caixa .teste .one-button {
   font-size: 18px;
