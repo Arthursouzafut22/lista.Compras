@@ -1,20 +1,22 @@
-const containerCompras = document.querySelector(".container-compras");
+const listaItems = document.querySelector(".container-compras");
 let input = document.querySelector(".input");
 const form = document.querySelector(".form");
-
+const check = document.querySelector(".check");
 
 // Adicionar item a lista....
+const newArray = [];
+
 function onSubitItem(event) {
   event.preventDefault();
   if (input.value.trim() === "") return;
 
-  const newArray = [];
   const infoElement = newItem();
-
   newArray.push(infoElement);
 
-  for (const it of newArray) {
-    containerCompras.innerHTML += cardItem(it);
+  listaItems.innerHTML = "";
+
+  for (const item of newArray) {
+    listaItems.innerHTML += cardItem(item);
   }
 
   input.value = "";
@@ -22,45 +24,82 @@ function onSubitItem(event) {
 
 form.addEventListener("submit", onSubitItem);
 
-// Validar Container....
-function checkContainer() {
-  if (containerCompras.children.length === 0) {
-    const childreElement = document.createElement("p");
-    childreElement.innerHTML = "Sua lista esta vazia adiciocione items!";
-    containerCompras.appendChild(childreElement);
-  }
-
-  return (childreElement.innerHTML = "");
-}
-
-checkContainer();
-
 // New element....
 function newItem() {
   return (elementItem = {
     id: Math.floor(Math.random() * 100),
     nome: input.value,
-    data: new Date().toString(),
+    data: dayOfTheWeek() + hoursDays(),
   });
 }
 
 // CardItem.....
-function cardItem(item) {
-  return `<div class="card-item" id="${item.id}">
+function cardItem({ id, nome, data }) {
+  return `<div class="card-item" id="${id}" data-remove="${id}">
             <div class="wrapper-1">
               <div class="details">
                 <input type="checkbox" name="checkbox" id="checkbox" />
-                <p>${item.nome}</p>
+                <p>${nome}</p>
               </div>
-
               <div class="wrapper-btns">
-                <button>
+                <button onclick="removeItem(${id})">
                   <img src="imgs/delete.svg" alt="delete" /></button
-                ><button>
+                ><button onclick="editItem(${nome})">
                   <img src="imgs/edit.svg" alt="edit" />
                 </button>
               </div>
             </div>
-            <p>${item.data}</p>
+            <p>${data}</p>
           </div>`;
+}
+
+//Remove Item....
+function removeItem(id) {
+  const remov = newArray.filter((item) => item.id !== id);
+  return remov;
+}
+
+//Editar Item...
+function editItem(nome) {
+  return "Nada";
+}
+
+// Data e horas atual.....
+function hoursDays() {
+  const dataHoje = new Date();
+  const horas = dataHoje.getHours().toFixed(0);
+  const minutos = dataHoje.getMinutes().toFixed(0);
+
+  const horasTotal = `${horas + ":" + minutos}`;
+
+  return (
+    new Intl.DateTimeFormat("pt-BR").format(dataHoje).toString() +
+    " as " +
+    horasTotal
+  );
+}
+
+// Dia da semana....
+function dayOfTheWeek() {
+  const date = new Date();
+
+  const dias = [
+    "Domingo ",
+    "Segunda-feira ",
+    "Terça-feira ",
+    "Quarta-feira ",
+    "Quinta-feira ",
+    "Sexta-feira ",
+    "Sábado",
+  ];
+
+  let dia = "";
+
+  for (let i = 0; i < dias.length; i++) {
+    if (date.getDay() === i) {
+      dia = dias[i];
+    }
+  }
+
+  return dia;
 }

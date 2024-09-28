@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.wrapper-caixa {
+  max-width: 400px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 2px 5px 19px -3px rgba(204, 204, 204, 0.39);
+}
+.wrapper-caixa .teste {
+  padding: 18px;
+}
+.wrapper-caixa .teste img {
+  display: block;
+  margin: 0 auto;
+}
+.wrapper-caixa .teste input {
+  font-size: 17px;
+  width: 100%;
+  padding: 8px;
+  display: block;
+  border-radius: 8px;
+  margin-top: 15px;
+  border: 2px solid darkgray;
+  outline: none;
+}
+.wrapper-caixa .teste input:focus {
+  border: 2px solid red;
+  outline: none;
+}
+.wrapper-caixa .teste .one-button {
+  font-size: 18px;
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+}
+.wrapper-caixa .teste .p {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 15px;
+  margin-bottom: 0px;
+  color: red;
+  border-bottom: 3px dotted red;
+  padding-bottom: 2px;
+}
+.wrapper-caixa .container-compras {
+  padding: 15px;
+}
+.wrapper-caixa .container-compras .card-item {
+  background-color: bisque;
+  width: 100%;
+  margin-top: 5px;
+  padding: 6px;
+}
+.wrapper-caixa .container-compras .card-item .wrapper-1 {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+}
+.wrapper-caixa .container-compras .card-item .wrapper-1 .details {
+  display: flex;
+  gap: 6px;
+  align-items: end;
+  position: relative;
+}
+.wrapper-caixa .container-compras .card-item .wrapper-1 .details input[type=checkbox] {
+  display: block;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 15px !important;
+  height: 15px !important;
+  background-color: #ffffff;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 10px;
+  border: 1px solid red;
+}
+.wrapper-caixa .container-compras .card-item .wrapper-1 .details input[type=checkbox]:checked {
+  background-color: red;
+}
+.wrapper-caixa .container-compras .card-item .wrapper-1 .details input[type=checkbox]:checked::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  bottom: 7px !important;
+  left: 6px;
+  width: 8px;
+  height: 13px;
+  border: solid #ffffff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.wrapper-caixa .container-compras .card-item .wrapper-1 .details p {
+  font-size: 20px;
+  font-weight: 700;
+  text-wrap: nowrap;
+}
+.wrapper-caixa .container-compras .card-item .wrapper-1 .wrapper-btns {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.wrapper-caixa .container-compras .card-item .wrapper-1 .wrapper-btns button {
+  font-size: 17px;
+  padding: 4px;
+  cursor: pointer;
+  border-radius: 4px;
+  border: none;
+}/*# sourceMappingURL=style.css.map */
