@@ -2,17 +2,17 @@ const listaItems = document.querySelector(".container-compras");
 let input = document.querySelector(".input");
 const form = document.querySelector(".form");
 const check = document.querySelector(".check");
+const imgsIcon = ["imgs/delete.svg", "imgs/edit.svg"];
 
 // Adicionar item a lista....
 const newArray = [];
 
 function onSubitItem(event) {
   event.preventDefault();
-  if (input.value.trim() === "") return;
+  if (input.value.trim() === "") return alert("Campo vazio!");
 
   const infoElement = newItem();
   newArray.push(infoElement);
-
   listaItems.innerHTML = "";
 
   for (const item of newArray) {
@@ -35,7 +35,7 @@ function newItem() {
 
 // CardItem.....
 function cardItem({ id, nome, data }) {
-  return `<div class="card-item" id="${id}" data-remove="${id}">
+  return `<div class="card-item" id="${id}">
             <div class="wrapper-1">
               <div class="details">
                 <input type="checkbox" name="checkbox" id="checkbox" />
@@ -43,9 +43,9 @@ function cardItem({ id, nome, data }) {
               </div>
               <div class="wrapper-btns">
                 <button onclick="removeItem(${id})">
-                  <img src="imgs/delete.svg" alt="delete" /></button
+                  <img src="${imgsIcon[0]}" alt="delete" /></button
                 ><button onclick="editItem(${nome})">
-                  <img src="imgs/edit.svg" alt="edit" />
+                  <img src="${imgsIcon[1]}" alt="edit" />
                 </button>
               </div>
             </div>
@@ -57,11 +57,12 @@ function cardItem({ id, nome, data }) {
 function removeItem(id) {
   const remov = newArray.filter((item) => item.id !== id);
   return remov;
+  "Nada por enquanto"
 }
 
 //Editar Item...
 function editItem(nome) {
-  return "Nada";
+  return "Nada por enquanto";
 }
 
 // Data e horas atual.....
@@ -84,12 +85,12 @@ function dayOfTheWeek() {
   const date = new Date();
 
   const dias = [
-    "Domingo ",
-    "Segunda-feira ",
-    "Terça-feira ",
-    "Quarta-feira ",
+    "Domingo",
+    "Segunda-feira",
+    "Terça-feira",
+    "Quarta-feira",
     "Quinta-feira ",
-    "Sexta-feira ",
+    "Sexta-feira",
     "Sábado",
   ];
 

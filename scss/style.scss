@@ -1,5 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
+$ColorYelo: #e6b22e;
+$ColorChumbo: #161618;
+
+@mixin flexItem($align, $justify) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -8,18 +17,17 @@
 
 body {
   font-family: "Roboto", sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flexItem(center, center);
   height: 100vh;
+  background-color: $ColorChumbo;
 }
 
 .wrapper-caixa {
-  // border: 1px solid;
-  max-width: 400px;
+  max-width: 350px;
   width: 100%;
   border-radius: 10px;
-  box-shadow: 2px 5px 19px -3px rgba(204, 204, 204, 0.39);
+  background-color: #1c1c1e;
+  margin: 0px 20px;
 
   .teste {
     padding: 18px;
@@ -36,17 +44,20 @@ body {
       display: block;
       border-radius: 8px;
       margin-top: 15px;
-      border: 2px solid darkgray;
+      border: 2px solid $ColorYelo;
       outline: none;
+      color: darkgray;
+      background-color: $ColorChumbo;
 
-      &:focus{
-        border: 2px solid red; 
-         outline: none;
+      &:focus {
+        border: 2px solid darkgray;
+        outline: none;
       }
     }
 
     .one-button {
       font-size: 18px;
+      font-weight: 700;
       display: block;
       width: 100%;
       margin-top: 8px;
@@ -54,9 +65,8 @@ body {
       padding: 8px;
       border-radius: 8px;
       border: none;
-      background-color: red;
-      
-     
+      color: $ColorYelo;
+      background-color: #fcebbf;
     }
 
     .p {
@@ -64,8 +74,8 @@ body {
       font-weight: 600;
       margin-top: 15px;
       margin-bottom: 0px;
-      color: red;
-      border-bottom: 3px dotted red;
+      color: $ColorYelo;
+      border-bottom: 3px dotted $ColorYelo;
       padding-bottom: 2px;
     }
   }
@@ -74,20 +84,18 @@ body {
     padding: 15px;
 
     .card-item {
-      background-color: bisque;
+      background-color: #353539;
       width: 100%;
       margin-top: 5px;
-      padding: 6px;
+      padding: 8px 6px;
+      border-radius: 3px;
 
       .wrapper-1 {
-        display: flex;
-        align-items: end;
-        justify-content: space-between;
+        @include flexItem(end, space-between);
 
         .details {
-          display: flex;
+          @include flexItem(end, initial);
           gap: 6px;
-          align-items: end;
           position: relative;
 
           input[type="checkbox"] {
@@ -103,22 +111,21 @@ body {
             display: inline-block;
             vertical-align: middle;
             padding: 10px;
-            border: 1px solid red;
+            border: 1px solid $ColorYelo;
 
             &:checked {
-              background-color: red;
+              background-color: $ColorYelo;
             }
 
             &:checked::before {
               content: "";
               position: absolute;
-              top: 3px;
-              bottom: 7px !important;
+              top: 8px;
               left: 6px;
               width: 8px;
               height: 13px;
               border: solid #ffffff;
-              border-width: 0 2px 2px 0;
+              border-width: 0 3px 3px 0;
               transform: rotate(45deg);
             }
           }
@@ -127,6 +134,7 @@ body {
             font-size: 20px;
             font-weight: 700;
             text-wrap: nowrap;
+            color: darkgray;
           }
         }
 
@@ -134,17 +142,26 @@ body {
           display: flex;
           align-items: center;
           gap: 5px;
-          // align-self: flex-end;
-          // flex: 1;
 
           button {
             font-size: 17px;
-            padding: 4px;
+            padding: 2px;
             cursor: pointer;
             border-radius: 4px;
             border: none;
+
+            img {
+              display: block;
+              margin: 0;
+              padding: 0;
+            }
           }
         }
+      }
+      p {
+        font-size: 14px;
+        color: darkgray;
+        margin-top: 5px;
       }
     }
   }
