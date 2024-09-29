@@ -30,12 +30,13 @@ function newItem() {
     id: Math.floor(Math.random() * 100),
     nome: input.value,
     data: dayOfTheWeek() + hoursDays(),
+    type: "Card",
   });
 }
 
 // CardItem.....
 function cardItem({ id, nome, data }) {
-  return `<div class="card-item" id="${id}">
+  return `<div class="card-item" id="${id}" data-remove="${id}">
             <div class="wrapper-1">
               <div class="details">
                 <input type="checkbox" name="checkbox" id="checkbox" />
@@ -55,9 +56,10 @@ function cardItem({ id, nome, data }) {
 
 //Remove Item....
 function removeItem(id) {
-  const remov = newArray.filter((item) => item.id !== id);
-  return remov;
-  "Nada por enquanto"
+  const getId = document.getElementById(`${id}`);
+  const atributId = getId.getAttribute("id");
+
+  return String(id) === atributId ? getId.remove() : false;
 }
 
 //Editar Item...
