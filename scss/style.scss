@@ -23,14 +23,14 @@ body {
 }
 
 .wrapper-caixa {
-  max-width: 350px;
+  max-width: 21.88rem;
   width: 100%;
-  border-radius: 10px;
+  border-radius: 0.63rem;
   background-color: #1c1c1e;
   margin: 0px 20px;
 
   .teste {
-    padding: 18px;
+    padding: 1.13rem;
 
     img {
       display: block;
@@ -38,11 +38,11 @@ body {
     }
 
     input {
-      font-size: 17px;
+      font-size: 1.06rem;
       width: 100%;
-      padding: 8px;
+      padding: 0.5rem;
       display: block;
-      border-radius: 8px;
+      border-radius: 0.5rem;
       margin-top: 15px;
       border: 2px solid $ColorYelo;
       outline: none;
@@ -56,46 +56,46 @@ body {
     }
 
     .one-button {
-      font-size: 18px;
+      font-size: 1.13rem;
       font-weight: 700;
       display: block;
       width: 100%;
       margin-top: 8px;
       cursor: pointer;
-      padding: 8px;
-      border-radius: 8px;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
       border: none;
       color: $ColorYelo;
       background-color: #fcebbf;
     }
 
     .p {
-      font-size: 20px;
+      font-size: 1.25rem;
       font-weight: 600;
       margin-top: 15px;
-      margin-bottom: 0px;
+      margin-bottom: 0;
       color: $ColorYelo;
       border-bottom: 3px dotted $ColorYelo;
-      padding-bottom: 2px;
+      padding-bottom: 0.125rem;
     }
   }
 
   .container-compras {
-    padding: 15px;
+    padding: 0.9375rem;
 
     .card-item {
       background-color: #353539;
       width: 100%;
-      margin-top: 5px;
-      padding: 8px 6px;
-      border-radius: 3px;
+      margin: 5px 0px 8px 0px;
+      padding: 0.5rem 0.375rem;
+      border-radius: 0.31rem;
 
       .wrapper-1 {
         @include flexItem(end, space-between);
 
         .details {
           @include flexItem(end, initial);
-          gap: 6px;
+          gap: 0.375rem;
           position: relative;
 
           input[type="checkbox"] {
@@ -110,7 +110,7 @@ body {
             cursor: pointer;
             display: inline-block;
             vertical-align: middle;
-            padding: 10px;
+            padding: 0.625rem;
             border: 1px solid $ColorYelo;
 
             &:checked {
@@ -131,7 +131,7 @@ body {
           }
 
           p {
-            font-size: 20px;
+            font-size: 1.25rem;
             font-weight: 700;
             text-wrap: nowrap;
             color: darkgray;
@@ -141,14 +141,20 @@ body {
         .wrapper-btns {
           display: flex;
           align-items: center;
-          gap: 5px;
+          gap: 0.3125rem;
 
           button {
-            font-size: 17px;
-            padding: 2px;
+            font-size: 1.06rem;
+            padding: 0.13rem;
             cursor: pointer;
-            border-radius: 4px;
+            border-radius: 0.25rem;
             border: none;
+            background-color: $ColorYelo;
+            transition: 0.5s all;
+
+            &:hover {
+              background-color: #fcebbf;
+            }
 
             img {
               display: block;
@@ -159,10 +165,13 @@ body {
         }
       }
       p {
-        font-size: 14px;
+        font-size: 0.88rem;
         color: darkgray;
         margin-top: 5px;
       }
     }
+  }
+  .check {
+    color: darkgray;
   }
 }

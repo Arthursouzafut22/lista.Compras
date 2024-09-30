@@ -24,19 +24,30 @@ function onSubitItem(event) {
 
 form.addEventListener("submit", onSubitItem);
 
+
+// Validar se tem item na lista...
+function checkContainer() {
+  if (newArray.length === 0) {
+    check.innerHTML = "Nenhum item na lista.";
+  } else if (newArray.length > 0) {
+    check.innerHTML = "";
+  }
+}
+checkContainer();
+
+
 // New element....
 function newItem() {
   return (elementItem = {
     id: Math.floor(Math.random() * 100),
     nome: input.value,
     data: dayOfTheWeek() + hoursDays(),
-    type: "Card",
   });
 }
 
 // CardItem.....
 function cardItem({ id, nome, data }) {
-  return `<div class="card-item" id="${id}" data-remove="${id}">
+  return `<div class="card-item" id="${id}">
             <div class="wrapper-1">
               <div class="details">
                 <input type="checkbox" name="checkbox" id="checkbox" />
@@ -45,7 +56,7 @@ function cardItem({ id, nome, data }) {
               <div class="wrapper-btns">
                 <button onclick="removeItem(${id})">
                   <img src="${imgsIcon[0]}" alt="delete" /></button
-                ><button onclick="editItem(${nome})">
+                ><button onclick="editItem('${nome}')">
                   <img src="${imgsIcon[1]}" alt="edit" />
                 </button>
               </div>
@@ -56,15 +67,36 @@ function cardItem({ id, nome, data }) {
 
 //Remove Item....
 function removeItem(id) {
-  const getId = document.getElementById(`${id}`);
-  const atributId = getId.getAttribute("id");
+  const index = newArray.findIndex((item) => item.id === id);
+  if (index !== -1) {
+    newArray.splice(index, 1);
 
-  return String(id) === atributId ? getId.remove() : false;
+    listaItems.innerHTML = "";
+    for (const item of newArray) {
+      listaItems.innerHTML += cardItem(item);
+    }
+  }
 }
 
 //Editar Item...
 function editItem(nome) {
-  return "Nada por enquanto";
+  const name = prompt("Digite o novo nome do item:");
+  const nameItem = newArray.findIndex((item) => item.nome === nome);
+
+  const itemEdit = {
+    id: nameItem?.id,
+    nome: String(nameItem.nome).replace(nameItem.nome, name),
+    data: dayOfTheWeek() + hoursDays(),
+  };
+
+  if (nameItem !== -1) {
+    newArray.splice(nameItem, 1, itemEdit);
+    listaItems.innerHTML = "";
+
+    for (const item of newArray) {
+      listaItems.innerHTML += cardItem(item);
+    }
+  }
 }
 
 // Data e horas atual.....
@@ -88,12 +120,12 @@ function dayOfTheWeek() {
 
   const dias = [
     "Domingo",
-    "Segunda-feira",
-    "Terça-feira",
-    "Quarta-feira",
+    "Segunda-feira  ",
+    "Terça-feira  ",
+    "Quarta-feira  ",
     "Quinta-feira ",
-    "Sexta-feira",
-    "Sábado",
+    "Sexta-feira  ",
+    "Sábado  ",
   ];
 
   let dia = "";
@@ -106,3 +138,4 @@ function dayOfTheWeek() {
 
   return dia;
 }
+
