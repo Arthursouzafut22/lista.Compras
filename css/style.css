@@ -110,7 +110,7 @@ body {
   content: "";
   position: absolute;
   top: 8px;
-  left: 6px;
+  left: 5px;
   width: 8px;
   height: 13px;
   border: solid #ffffff;
@@ -152,6 +152,7 @@ body {
 }
 .wrapper-caixa .check {
   color: darkgray;
+  padding: 1.25rem;
 }
 
 /*# sourceMappingURL=style.css.map */
