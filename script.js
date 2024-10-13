@@ -2,7 +2,6 @@ const listaItems = document.querySelector(".container-compras");
 let input = document.querySelector(".input");
 const form = document.querySelector(".form");
 const check = document.querySelector(".check");
-const invalid = document.querySelector(".invalid");
 const imgsIcon = ["imgs/delete.svg", "imgs/edit.svg"];
 
 // Adicionar item a lista....
