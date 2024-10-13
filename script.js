@@ -26,16 +26,6 @@ function addNewItem(event) {
 
 form.addEventListener("submit", addNewItem);
 
-// Validar se tem item na lista...
-// function checkContainer() {
-//   if (newArray.length === 0) {
-//     check.innerHTML = "Nenhum item na lista.";
-//   } else if (newArray.length > 0) {
-//     check.innerHTML = "";
-//   }
-// }
-// checkContainer();
-
 // New element....
 function newItem() {
   return (elementItem = {
